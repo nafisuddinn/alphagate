@@ -39,7 +39,7 @@ Limits, stated plainly:
 
 ### Multiple testing: `spend_alpha` and the trial number
 
-Running the same test on many challengers inflates the chance that one passes by luck. `spend_alpha(total, k)` returns `total / (k (k + 1))` for the `k`-th test in an open-ended series. Those levels sum to less than `total` however many tests are eventually run, so the chance of any false promotion across the whole series stays below `total`.
+Running the same test on many challengers inflates the chance that one passes by luck. `spend_alpha(total, k)` returns `total / (k (k + 1))` for the `k`-th test in an open-ended series. Those levels sum to less than `total` however many tests are eventually run, so the chance of any false promotion across the whole series stays below `total`, provided each individual test has its nominal size. That bound is nominal, not exact: the DM test with the normal approximation over-rejects somewhat at n of about 250, more so when the samples are autocorrelated (measured size about 5.8% with independent samples, 6.9% at AR(0.3) and 9.5% at AR(0.6), against a nominal 5%).
 
 **alphagate cannot verify `k`.** The caller supplies the trial number (put it in `context` so it is logged with the decision) and is responsible for counting every challenger that was ever evaluated, including ones that were abandoned or never logged. Undercounting `k` silently voids the guarantee. `paired_test(a, b, lags)` is also exported for reporting the same statistic outside a gate decision.
 

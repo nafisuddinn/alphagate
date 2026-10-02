@@ -3,6 +3,9 @@
 alphagate is a generic model-governance package. Vocabulary from any specific
 application domain (here: the one that happens to depend on it) must never
 leak into the package source.
+
+Scans src/alphagate/ only. The README and tests are deliberately not scanned:
+the README names WolfPack by design, as the project that dogfoods alphagate.
 """
 
 from __future__ import annotations
