@@ -8,12 +8,22 @@ rejections alike) as an immutable, serialisable record.
 from ._version import __version__
 from .comparators import (
     IMPROVED,
+    INFERIOR,
+    INSUFFICIENT_SAMPLES,
     INVALID_METRIC,
     NO_INCUMBENT,
+    NON_INFERIOR,
     NOT_IMPROVED,
+    NOT_SIGNIFICANT,
+    SAMPLES_MISMATCH,
+    SIGNIFICANT_IMPROVEMENT,
     Comparator,
     MarginComparator,
+    PairedComparator,
+    PairedTest,
     Verdict,
+    paired_test,
+    spend_alpha,
 )
 from .errors import AlphagateError, LookaheadError, SinkError
 from .gate import gate
@@ -33,10 +43,20 @@ __all__ = [
     "Verdict",
     "Comparator",
     "MarginComparator",
+    "PairedComparator",
+    "PairedTest",
+    "paired_test",
+    "spend_alpha",
     "NO_INCUMBENT",
     "IMPROVED",
     "NOT_IMPROVED",
     "INVALID_METRIC",
+    "SIGNIFICANT_IMPROVEMENT",
+    "NOT_SIGNIFICANT",
+    "NON_INFERIOR",
+    "INFERIOR",
+    "INSUFFICIENT_SAMPLES",
+    "SAMPLES_MISMATCH",
     # records and sinks
     "GateRecord",
     "Decision",
